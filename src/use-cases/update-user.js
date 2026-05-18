@@ -33,7 +33,7 @@ export class UpdateUserUseCase {
 
         const updatedUser = await postgreUpdateUserRepository.execute(
             userId,
-            updateUserParams,
+            user,
         )
 
         return updatedUser

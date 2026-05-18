@@ -1,8 +1,10 @@
 import { v6 as uuidv6 } from 'uuid'
 import bcrypt from 'bcrypt'
 
-import { PostgresCreateUserRepository } from '../repositores/postgres/create-user.js'
-import { PostgresGetUserByEmailRepository } from '../repositores/postgres/get-user-by-email.js'
+import {
+    PostgresCreateUserRepository,
+    PostgresGetUserByEmailRepository,
+} from '../repositores/postgres/index.js'
 import { EmailAlreadyInUseError } from '../errors/user.js'
 
 export class CreateUserUseCase {

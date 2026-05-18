@@ -3,7 +3,7 @@ import { PostgresGetUserByEmailRepository } from '../repositores/postgres/get-us
 import { EmailAlreadyInUseError } from '../errors/user.js'
 import { PostgresUpdateUserRepository } from '../repositores/postgres/update-user.js'
 
-export class UpdateUserCase {
+export class UpdateUserUseCase {
     async execute(userId, updateUserParams) {
         const postgresGetUserByEmailRepository =
             new PostgresGetUserByEmailRepository()
@@ -13,7 +13,7 @@ export class UpdateUserCase {
                 updateUserParams.email,
             )
 
-        if (userWithProvidedEmail) {
+        if (userWithProvidedEmail && userWithProvidedEmail.id != userId) {
             throw new EmailAlreadyInUseError(updateUserParams.email)
         }
 

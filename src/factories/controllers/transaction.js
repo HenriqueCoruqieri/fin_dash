@@ -1,6 +1,6 @@
 import {
     PostgresCreateTransactionRepository,
-    PostgresGetUserByEmailRepository,
+    PostgresGetUserByIdRepository,
 } from '../../repositores/postgres/index.js'
 
 import { CreateTransactionUseCase } from '../../use-cases/index.js'
@@ -11,7 +11,7 @@ export const makeCreateTransactionController = () => {
     const createTransactionRepository =
         new PostgresCreateTransactionRepository()
 
-    const getUserByIdRepository = new PostgresGetUserByEmailRepository()
+    const getUserByIdRepository = new PostgresGetUserByIdRepository()
 
     const createTransactionUseCase = new CreateTransactionUseCase(
         createTransactionRepository,
